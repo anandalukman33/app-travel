@@ -7,12 +7,15 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 class ConfigNetwork {
 
-    fun getRetrofit() {
+    companion object {
+    fun getRetrofit() : NetworkService {
         val retrofit = Retrofit.Builder()
             .baseUrl("http://udacoding.com/")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
 
         val service = retrofit.create(NetworkService::class.java)
+        return service
     }
+  }
 }
